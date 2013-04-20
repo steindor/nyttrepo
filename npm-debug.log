@@ -1,0 +1,303 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'install', 'now' ]
+2 info using npm@1.1.63
+3 info using node@v0.9.3-pre
+4 verbose cache add [ 'now', null ]
+5 silly cache add name=undefined spec="now" args=["now",null]
+6 verbose parsed url { protocol: null,
+6 verbose parsed url   slashes: null,
+6 verbose parsed url   auth: null,
+6 verbose parsed url   host: null,
+6 verbose parsed url   port: null,
+6 verbose parsed url   hostname: null,
+6 verbose parsed url   hash: null,
+6 verbose parsed url   search: null,
+6 verbose parsed url   query: null,
+6 verbose parsed url   pathname: 'now',
+6 verbose parsed url   path: 'now',
+6 verbose parsed url   href: 'now' }
+7 silly lockFile c9bc849a-now now
+8 verbose lock now /home/gunni/.npm/c9bc849a-now.lock
+9 silly lockFile c9bc849a-now now
+10 verbose addNamed [ 'now', '' ]
+11 verbose addNamed [ null, '' ]
+12 silly lockFile 1193e862-now now@
+13 verbose lock now@ /home/gunni/.npm/1193e862-now.lock
+14 silly addNameRange { name: 'now', range: '', hasData: false }
+15 verbose url raw now
+16 verbose url resolving [ 'https://registry.npmjs.org/', './now' ]
+17 verbose url resolved https://registry.npmjs.org/now
+18 info trying registry request attempt 1 at 22:22:38
+19 verbose etag "2ZW5WFO9LBR2N4H152I9OEUPA"
+20 http GET https://registry.npmjs.org/now
+21 http 304 https://registry.npmjs.org/now
+22 silly registry.get cb [ 304,
+22 silly registry.get   { server: 'CouchDB/1.2.0 (Erlang OTP/R15B)',
+22 silly registry.get     etag: '"2ZW5WFO9LBR2N4H152I9OEUPA"',
+22 silly registry.get     date: 'Mon, 22 Oct 2012 22:22:39 GMT',
+22 silly registry.get     'content-length': '0' } ]
+23 verbose etag now from cache
+24 silly addNameRange number 2 { name: 'now', range: '', hasData: true }
+25 silly addNameRange versions [ 'now',
+25 silly addNameRange   [ '0.2.0',
+25 silly addNameRange     '0.2.1',
+25 silly addNameRange     '0.2.2',
+25 silly addNameRange     '0.2.3',
+25 silly addNameRange     '0.2.4',
+25 silly addNameRange     '0.3.0',
+25 silly addNameRange     '0.3.1',
+25 silly addNameRange     '0.3.2',
+25 silly addNameRange     '0.5.0',
+25 silly addNameRange     '0.5.1',
+25 silly addNameRange     '0.5.2',
+25 silly addNameRange     '0.5.3',
+25 silly addNameRange     '0.6.0',
+25 silly addNameRange     '0.6.1',
+25 silly addNameRange     '0.7.0',
+25 silly addNameRange     '0.7.1',
+25 silly addNameRange     '0.7.2',
+25 silly addNameRange     '0.7.3',
+25 silly addNameRange     '0.7.4',
+25 silly addNameRange     '0.7.5',
+25 silly addNameRange     '0.7.6',
+25 silly addNameRange     '0.8.0',
+25 silly addNameRange     '0.8.1' ] ]
+26 verbose addNamed [ 'now', '0.8.1' ]
+27 verbose addNamed [ '0.8.1', '0.8.1' ]
+28 silly lockFile 00d2b6cb-now-0-8-1 now@0.8.1
+29 verbose lock now@0.8.1 /home/gunni/.npm/00d2b6cb-now-0-8-1.lock
+30 silly lockFile 00d2b6cb-now-0-8-1 now@0.8.1
+31 silly lockFile 1193e862-now now@
+32 silly resolved [ { author: { name: 'Flotype' },
+32 silly resolved     name: 'now',
+32 silly resolved     description: 'NowJS: An easy to use real-time RPC library',
+32 silly resolved     version: '0.8.1',
+32 silly resolved     repository: { type: 'git', url: 'git://github.com/Flotype/now.git' },
+32 silly resolved     main: 'lib/server.js',
+32 silly resolved     engines: { node: '>= v0.4.0' },
+32 silly resolved     dependencies: { 'socket.io': '>= 0.8.7', 'node-proxy': '>= 0.4.0' },
+32 silly resolved     devDependencies: {},
+32 silly resolved     readme: 'Get NowJS http://www.nowjs.com/\n=========\n\n###NowJS makes realtime web apps really easy.\n\n\n<a href="https://github.com/Flotype/now/">Go to Github</a> or \n<a href="https://github.com/Flotype/now/tarball/master">Download the master tgz</a>\n\n\nInstall From npm\n----------------\n\n`npm install now` or `npm install now -g` to install globally\n\n\n\nNowJS is a Node.js module. The client javascript (now.js) is served by the NowJS server.\n\n\nNowJS uses the excellent <a href="https://github.com/LearnBoost/Socket.IO-node">socket.io</a> and <a href="https://github.com/isaacs/node-proxy">node-proxy</a> libraries.\n\n2 Step Setup\n==============\n\n**1. On the server**\n\n    \n    var httpServer = require(\'http\').createServer(function(req, response){ /* Serve your static files */ })\n    httpServer.listen(8080);\n    \n    var nowjs = require("now");\n    var everyone = nowjs.initialize(httpServer);\n    \n    everyone.now.logStuff = function(msg){\n        console.log(msg);\n    }\n    \n**2. On the client**\n<pre><code>\n&lt;script type="text/javascript" src="http://localhost:8080/nowjs/now.js">&lt;/script>\n\n&lt;script type="text/javascript"&gt;\n  now.ready(function(){\n    // "Hello World!" will print on server\n    now.logStuff("Hello World!");\n  });\n&lt;/script>\n</code></pre>\n\nFAQ\n-------\n\n**Q: Can I pass in a callback or closure, for example, if the remote function is asynchronous?**\n\nA: Yes. This is 100% supported\n\n\n**Q: How do I use NowJS with [Express](https://github.com/visionmedia/express)?**\n\nA: Very easily. \n    var app = express.createServer();\n    app.listen(3000);\n    var everyone = require("now").initialize(app);\n\n**Q: How do I disable WebSockets or only use xhr-polling?**\n\nA: You can specifiy exactly which transports to use as an initialization options as follows:\n    \n    var nowjs = require("now");\n    var everyone = nowjs.initialize(yourHttpServer, {socketio: {transports: [\'xhr-polling\', \'jsonp-polling\']}});\n\n\n**Q: Error: " SyntaxError: Unexpected token *" / Can I statically host the now.js file?**\n\nA: On the client side, make sure you link to now.js like this\n\n     <script src="http://myserver:myport/nowjs/now.js"></script>\n\nYou do not need to host the file /nowjs/now.js. It is automatically hosted by the NowJS using the http server you pass into the .initialize(...) in your server code. If you choose to host now.js yourself, you can, but **do not use the version in github repo** you MUST save the file at `http://myserver:myport/nowjs/now.js` and host that, because it is automatically configured for your server.\n\nFurther Reading\n---------------\n\nNow that you have NowJS, try the NowJS [User Manual](http://nowjs.com/doc) and [Quick Chat Example](http://nowjs.com/guide) \n\nHave more questions? Please contact us:\nEmail: team@nowjs.com\n\nIRC: [#nowjs on freenode](http://webchat.freenode.net/?nick=nowjs.&channels=nowjs)\n\nTwitter: [@NowJSTeam](http://twitter.com/nowjsteam)',
+32 silly resolved     readmeFilename: 'readme.md',
+32 silly resolved     _id: 'now@0.8.1',
+32 silly resolved     _from: 'now' } ]
+33 info install now@0.8.1 into /home/gunni/prufa
+34 info installOne now@0.8.1
+35 info /home/gunni/prufa/node_modules/now unbuild
+36 verbose tar unpack /home/gunni/.npm/now/0.8.1/package.tgz
+37 silly lockFile 73120e9e-ome-gunni-prufa-node-modules-now /home/gunni/prufa/node_modules/now
+38 verbose lock /home/gunni/prufa/node_modules/now /home/gunni/.npm/73120e9e-ome-gunni-prufa-node-modules-now.lock
+39 silly gunzTarPerm modes [ '755', '644' ]
+40 silly gunzTarPerm extractEntry package.json
+41 silly gunzTarPerm extractEntry .npmignore
+42 silly gunzTarPerm extractEntry LICENSE
+43 silly gunzTarPerm extractEntry bin/build.js
+44 silly gunzTarPerm extractEntry changelog.md
+45 silly gunzTarPerm extractEntry readme.md
+46 silly gunzTarPerm extractEntry doc/jsdoc/files.html
+47 silly gunzTarPerm extractEntry doc/jsdoc/index.html
+48 silly gunzTarPerm extractEntry doc/jsdoc/symbols/Group#now.html
+49 silly gunzTarPerm extractEntry doc/jsdoc/symbols/Group.html
+50 silly gunzTarPerm extractEntry doc/jsdoc/symbols/User#now.html
+51 silly gunzTarPerm extractEntry doc/jsdoc/symbols/User#user.html
+52 silly gunzTarPerm extractEntry doc/jsdoc/symbols/User.html
+53 silly gunzTarPerm extractEntry doc/jsdoc/symbols/_global_.html
+54 silly gunzTarPerm extractEntry doc/jsdoc/symbols/nowjs.html
+55 silly gunzTarPerm extractEntry doc/jsdoc/symbols/src/now_lib_fileServer.js.html
+56 silly gunzTarPerm extractEntry doc/jsdoc/symbols/src/flotype_now_lib_fileServer.js.html
+57 silly gunzTarPerm extractEntry doc/jsdoc/symbols/src/flotype_now_lib_group.js.html
+58 silly gunzTarPerm extractEntry doc/jsdoc/symbols/src/flotype_now_lib_handlers.js.html
+59 silly gunzTarPerm extractEntry doc/jsdoc/symbols/src/flotype_now_lib_now.js.html
+60 silly gunzTarPerm extractEntry doc/jsdoc/symbols/src/flotype_now_lib_nowUtil.js.html
+61 silly gunzTarPerm extractEntry doc/jsdoc/symbols/src/flotype_now_lib_proxy.js.html
+62 silly gunzTarPerm extractEntry doc/jsdoc/symbols/src/flotype_now_lib_scopeTable.js.html
+63 silly gunzTarPerm extractEntry doc/jsdoc/symbols/src/flotype_now_lib_server.js.html
+64 silly gunzTarPerm extractEntry doc/jsdoc/symbols/src/flotype_now_lib_support.js.html
+65 silly gunzTarPerm extractEntry doc/jsdoc/symbols/src/flotype_now_lib_user.js.html
+66 silly gunzTarPerm extractEntry doc/jsdoc/symbols/src/flotype_now_lib_function.js.html
+67 silly gunzTarPerm extractEntry doc/jsdoc/symbols/src/now_lib_function.js.html
+68 silly gunzTarPerm extractEntry doc/jsdoc/symbols/src/now_lib_group.js.html
+69 silly gunzTarPerm extractEntry doc/jsdoc/symbols/src/now_lib_handlers.js.html
+70 silly gunzTarPerm extractEntry doc/jsdoc/symbols/src/now_lib_now.js.html
+71 silly gunzTarPerm extractEntry doc/jsdoc/symbols/src/now_lib_nowUtil.js.html
+72 silly gunzTarPerm extractEntry doc/jsdoc/symbols/src/now_lib_proxy.js.html
+73 silly gunzTarPerm extractEntry doc/jsdoc/symbols/src/now_lib_scopeTable.js.html
+74 silly gunzTarPerm extractEntry doc/jsdoc/symbols/src/now_lib_server.js.html
+75 silly gunzTarPerm extractEntry doc/jsdoc/symbols/src/now_lib_support.js.html
+76 silly gunzTarPerm extractEntry doc/jsdoc/symbols/src/now_lib_user.js.html
+77 silly gunzTarPerm extractEntry doc/public/best_practices.md
+78 silly gunzTarPerm extractEntry doc/public/company.md
+79 silly gunzTarPerm extractEntry doc/public/getting_started.md
+80 silly gunzTarPerm extractEntry doc/public/jobs.md
+81 silly gunzTarPerm extractEntry doc/public/user_manual.md
+82 silly gunzTarPerm extractEntry examples/express_example/app.js
+83 silly gunzTarPerm extractEntry examples/express_example/views/chat.ejs
+84 silly gunzTarPerm extractEntry examples/express_example/views/index.ejs
+85 silly gunzTarPerm extractEntry examples/express_example/views/layout.ejs
+86 silly gunzTarPerm extractEntry examples/helloworld_example/helloworld_server.js
+87 silly gunzTarPerm extractEntry examples/helloworld_example/helloworld.html
+88 silly gunzTarPerm extractEntry examples/multiroomchat_example/multiroomchat_server.js
+89 silly gunzTarPerm extractEntry examples/multiroomchat_example/multiroomchat.html
+90 silly gunzTarPerm extractEntry examples/nodeclient_example/chat.js
+91 silly gunzTarPerm extractEntry examples/nodeclient_example/server.js
+92 silly gunzTarPerm extractEntry examples/nodeclient_example/index.html
+93 silly gunzTarPerm extractEntry lib/user.js
+94 silly gunzTarPerm extractEntry lib/function.js
+95 silly gunzTarPerm extractEntry lib/group.js
+96 silly gunzTarPerm extractEntry lib/handlers.js
+97 silly gunzTarPerm extractEntry lib/support.js
+98 silly gunzTarPerm extractEntry lib/fileServer.js
+99 silly gunzTarPerm extractEntry lib/nowUtil.js
+100 silly gunzTarPerm extractEntry lib/proxy.js
+101 silly gunzTarPerm extractEntry lib/scopeTable.js
+102 silly gunzTarPerm extractEntry lib/server.js
+103 silly gunzTarPerm extractEntry lib/now.js
+104 silly gunzTarPerm extractEntry lib/nodeclient/now.js
+105 silly gunzTarPerm extractEntry lib/client/now.js
+106 silly gunzTarPerm extractEntry Makefile
+107 silly gunzTarPerm extractEntry dist/now.js
+108 silly lockFile 73120e9e-ome-gunni-prufa-node-modules-now /home/gunni/prufa/node_modules/now
+109 info preinstall now@0.8.1
+110 verbose readDependencies using package.json deps
+111 verbose readDependencies using package.json deps
+112 verbose cache add [ 'node-proxy@>= 0.4.0', null ]
+113 silly cache add name=undefined spec="node-proxy@>= 0.4.0" args=["node-proxy@>= 0.4.0",null]
+114 verbose parsed url { protocol: null,
+114 verbose parsed url   slashes: null,
+114 verbose parsed url   auth: null,
+114 verbose parsed url   host: null,
+114 verbose parsed url   port: null,
+114 verbose parsed url   hostname: null,
+114 verbose parsed url   hash: null,
+114 verbose parsed url   search: null,
+114 verbose parsed url   query: null,
+114 verbose parsed url   pathname: 'node-proxy@%3E=%200.4.0',
+114 verbose parsed url   path: 'node-proxy@%3E=%200.4.0',
+114 verbose parsed url   href: 'node-proxy@%3E=%200.4.0' }
+115 silly cache add name="node-proxy" spec=">= 0.4.0" args=["node-proxy",">= 0.4.0"]
+116 verbose parsed url { protocol: null,
+116 verbose parsed url   slashes: null,
+116 verbose parsed url   auth: null,
+116 verbose parsed url   host: null,
+116 verbose parsed url   port: null,
+116 verbose parsed url   hostname: null,
+116 verbose parsed url   hash: null,
+116 verbose parsed url   search: null,
+116 verbose parsed url   query: null,
+116 verbose parsed url   pathname: '%3E=%200.4.0',
+116 verbose parsed url   path: '%3E=%200.4.0',
+116 verbose parsed url   href: '%3E=%200.4.0' }
+117 verbose addNamed [ 'node-proxy', '>= 0.4.0' ]
+118 verbose addNamed [ null, '>=0.4.0' ]
+119 silly lockFile 592bcf82-node-proxy-0-4-0 node-proxy@>= 0.4.0
+120 verbose lock node-proxy@>= 0.4.0 /home/gunni/.npm/592bcf82-node-proxy-0-4-0.lock
+121 silly addNameRange { name: 'node-proxy', range: '>=0.4.0', hasData: false }
+122 verbose url raw node-proxy
+123 verbose url resolving [ 'https://registry.npmjs.org/', './node-proxy' ]
+124 verbose url resolved https://registry.npmjs.org/node-proxy
+125 info trying registry request attempt 1 at 22:22:40
+126 verbose etag "BSJXBDBW3BGKETC08OD2KE0ZA"
+127 http GET https://registry.npmjs.org/node-proxy
+128 http 304 https://registry.npmjs.org/node-proxy
+129 silly registry.get cb [ 304,
+129 silly registry.get   { server: 'CouchDB/1.2.0 (Erlang OTP/R15B)',
+129 silly registry.get     etag: '"BSJXBDBW3BGKETC08OD2KE0ZA"',
+129 silly registry.get     date: 'Mon, 22 Oct 2012 22:22:40 GMT',
+129 silly registry.get     'content-length': '0' } ]
+130 verbose etag node-proxy from cache
+131 silly addNameRange number 2 { name: 'node-proxy', range: '>=0.4.0', hasData: true }
+132 silly addNameRange versions [ 'node-proxy',
+132 silly addNameRange   [ '0.3.1', '0.3.2', '0.4.0', '0.5.0', '0.5.1', '0.5.2', '0.6.0' ] ]
+133 verbose addNamed [ 'node-proxy', '0.6.0' ]
+134 verbose addNamed [ '0.6.0', '0.6.0' ]
+135 silly lockFile 4095cacd-node-proxy-0-6-0 node-proxy@0.6.0
+136 verbose lock node-proxy@0.6.0 /home/gunni/.npm/4095cacd-node-proxy-0-6-0.lock
+137 silly lockFile 4095cacd-node-proxy-0-6-0 node-proxy@0.6.0
+138 silly lockFile 592bcf82-node-proxy-0-4-0 node-proxy@>= 0.4.0
+139 silly resolved [ { name: 'node-proxy',
+139 silly resolved     version: '0.6.0',
+139 silly resolved     description: 'A module for node implementing __noSuchMethod__-type handlers, such as object overloading, as part of the Harmony Catch-All Proxies specification found at http://wiki.ecmascript.org/doku.php?id=harmony:proxies',
+139 silly resolved     keywords: [ 'interceptor', 'proxy', 'overload', '__noSuchMethod__' ],
+139 silly resolved     contributors: [ [Object], [Object], [Object] ],
+139 silly resolved     licenses: [ [Object] ],
+139 silly resolved     bugs: { url: 'http://github.com/samshull/node-proxy/issues' },
+139 silly resolved     implements: [ 'http://wiki.ecmascript.org/doku.php?id=harmony:proxies' ],
+139 silly resolved     engines: { node: '>=0.6', npm: '>= 1.1.17' },
+139 silly resolved     repositories: [ [Object] ],
+139 silly resolved     main: './lib/node-proxy.js',
+139 silly resolved     scripts:
+139 silly resolved      { install: 'node-gyp configure build',
+139 silly resolved        test: 'node test/test.js' },
+139 silly resolved     readme: 'node-proxy is an implementation of Harmony Proxies http://wiki.ecmascript.org/doku.php?id=harmony:proxies\nthat allows the developer to create "catch-all" property handlers for an object or a function in node.js.\n\nAuthor: Sam Shull  \nRepository: http://github.com/samshull/node-proxy  \nIssues: http://github.com/samshull/node-proxy/issues  \n\n*** This does not work appropriately in node versions 0.1.100 - 0.1.102. You will need to install node_version.h in $PREFIX/include/node\n\nMethods:\n\nObject create(ProxyHandler handler [, Object proto ] ) throws Error, TypeError\n\nFunction createFunction(ProxyHandler handler, Function callTrap [, Function constructTrap ] ) throws Error, TypeError\n\nBoolean isTrapping(Object obj) throws Error\n\n\nAdditional Methods (for ECMAScript 5 compatibliity): @see http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-262.pdf\n\nBoolean freeze(Object obj) throws Error, TypeError\n\nBoolean seal(Object obj) throws Error, TypeError\n\nBoolean preventExtensions(Object obj) throws Error, TypeError\n\nBoolean isFrozen(Object obj) throws Error, TypeError\n\nBoolean isSealed(Object obj) throws Error, TypeError\n\nBoolean isExtensible(Object obj) throws Error, TypeError\n\nPropertyDescriptor getOwnPropertyDescriptor(Object obj, String name) throws Error, TypeError\n\nBoolean defineProperty(Object obj, String name, PropertyDescriptor pd) throws Error, TypeError\n\nBoolean defineProperties(Object obj, Object descriptors) throws Error, TypeError\n\n\nMore methods:\n\nObject hidden(Object obj, String name [, Object value ] ) throws Error\n- Set or retrieve a hidden property on an Object\n\nObject clone(Object obj) throws Error\n- Create a shallow copy of an Object\n\nBoolean isProxy(Object obj)\n- determine if an object was created by Proxy\n\nBoolean setPrototype(Object obj, Object obj) throws Error\n-set the prototype of a given object to the second given object\n',
+139 silly resolved     readmeFilename: 'README.md',
+139 silly resolved     _id: 'node-proxy@0.6.0',
+139 silly resolved     _from: 'node-proxy@>= 0.4.0' } ]
+140 info install node-proxy@0.6.0 into /home/gunni/prufa/node_modules/now
+141 info installOne node-proxy@0.6.0
+142 info /home/gunni/prufa/node_modules/now/node_modules/node-proxy unbuild
+143 verbose tar unpack /home/gunni/.npm/node-proxy/0.6.0/package.tgz
+144 silly lockFile d9070c4b-ules-now-node-modules-node-proxy /home/gunni/prufa/node_modules/now/node_modules/node-proxy
+145 verbose lock /home/gunni/prufa/node_modules/now/node_modules/node-proxy /home/gunni/.npm/d9070c4b-ules-now-node-modules-node-proxy.lock
+146 silly gunzTarPerm modes [ '755', '644' ]
+147 silly gunzTarPerm extractEntry package.json
+148 silly gunzTarPerm extractEntry .npmignore
+149 silly gunzTarPerm extractEntry README.md
+150 silly gunzTarPerm extractEntry LICENSE.txt
+151 silly gunzTarPerm extractEntry binding.gyp
+152 silly gunzTarPerm extractEntry examples/autoload-namespace/autoload-namespace.js
+153 silly gunzTarPerm extractEntry examples/autoload-namespace/autoload-test.js
+154 silly gunzTarPerm extractEntry examples/autoload-namespace/org/w3c/DOM/Document.js
+155 silly gunzTarPerm extractEntry examples/autoload-namespace/org/w3c/DOM/Document/String/Test.js
+156 silly gunzTarPerm extractEntry lib/node-proxy.js
+157 silly gunzTarPerm extractEntry src/node-proxy.cc
+158 silly gunzTarPerm extractEntry src/node-proxy.h
+159 silly gunzTarPerm extractEntry test/test.js
+160 silly lockFile d9070c4b-ules-now-node-modules-node-proxy /home/gunni/prufa/node_modules/now/node_modules/node-proxy
+161 info preinstall node-proxy@0.6.0
+162 verbose readDependencies using package.json deps
+163 verbose readDependencies using package.json deps
+164 silly resolved []
+165 verbose about to build /home/gunni/prufa/node_modules/now/node_modules/node-proxy
+166 info build /home/gunni/prufa/node_modules/now/node_modules/node-proxy
+167 verbose linkStuff [ false,
+167 verbose linkStuff   false,
+167 verbose linkStuff   false,
+167 verbose linkStuff   '/home/gunni/prufa/node_modules/now/node_modules' ]
+168 info linkStuff node-proxy@0.6.0
+169 verbose linkBins node-proxy@0.6.0
+170 verbose linkMans node-proxy@0.6.0
+171 verbose rebuildBundles node-proxy@0.6.0
+172 info install node-proxy@0.6.0
+173 verbose unsafe-perm in lifecycle false
+174 verbose set uid from=0 to=1000
+175 silly exec sh "-c" "node-gyp configure build"
+176 silly sh,-c,node-gyp configure build,/home/gunni/prufa/node_modules/now/node_modules/node-proxy spawning
+177 info node-proxy@0.6.0 Failed to exec install script
+178 info /home/gunni/prufa/node_modules/now/node_modules/node-proxy unbuild
+179 info preuninstall node-proxy@0.6.0
+180 info uninstall node-proxy@0.6.0
+181 verbose false,/home/gunni/prufa/node_modules,/home/gunni/prufa/node_modules/now/node_modules unbuild node-proxy@0.6.0
+182 info postuninstall node-proxy@0.6.0
+183 verbose about to build /home/gunni/prufa/node_modules/now
+184 info /home/gunni/prufa/node_modules/now unbuild
+185 info preuninstall now@0.8.1
+186 info uninstall now@0.8.1
+187 verbose true,/home/gunni/prufa/node_modules,/home/gunni/prufa/node_modules unbuild now@0.8.1
+188 info postuninstall now@0.8.1
+189 error node-proxy@0.6.0 install: `node-gyp configure build`
+189 error `sh "-c" "node-gyp configure build"` failed with 1
+190 error Failed at the node-proxy@0.6.0 install script.
+190 error This is most likely a problem with the node-proxy package,
+190 error not with npm itself.
+190 error Tell the author that this fails on your system:
+190 error     node-gyp configure build
+190 error You can get their info via:
+190 error     npm owner ls node-proxy
+190 error There is likely additional logging output above.
+191 error System Linux 2.6.38-8-server
+192 error command "/usr/local/bin/node" "/usr/local/bin/npm" "install" "now"
+193 error cwd /home/gunni/prufa
+194 error node -v v0.9.3-pre
+195 error npm -v 1.1.63
+196 error code ELIFECYCLE
+197 verbose exit [ 1, true ]

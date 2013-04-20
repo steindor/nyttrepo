@@ -1,0 +1,71 @@
+!!!
+html
+	head
+		script(type='text/javascript', src='/javascripts/yfirlit.js')
+		script(type='text/javascript', src='/javascripts/jquery-ui-1.8.21.custom.min.js')
+		script(type='text/javascript', src='/nowjs/now.js')
+		link(rel='stylesheet', href='/stylesheets/jquery-ui-1.8.21.custom.css')
+	body
+		#container
+			#display
+				include userbar
+			#nedricontainer
+				.haegri_dalkur
+					table.yfirlit_tafla_haegri
+						thead
+							tr
+								th(colspan='3') Vinir í lestri
+								th.info(name='her er textinn minn um vini i lestri') ?
+							tr
+								td #{fag_header}
+								td #{stofnandi_header}
+								td
+						tbody
+							tr
+								-for(var id in radir)
+									-var hopur = radir[id]
+										tr
+											td.fag #{hopur.namskeid}
+											td.stofnandi #{hopur.nafn_now_hops}
+											td 
+												input(type='button', style='display:#{disp_takki}', class='joina_studysession', value='Lesa')
+					table.yfirlit_tafla_haegri
+						thead
+							tr
+								th(colspan='3') Þínir námshópar
+								th.info.toflur_valmoguleiki(name='thinir namshopar!') ?
+							tr
+								td Nafn
+								td Stig
+						tbody
+							-for(var id in radir)
+								-var hopur = radir[id]
+								tr
+									td #{hopur.nafn}
+									td #{hopur.stig}
+									td 
+										form(class='falda_inputtid_form', method='POST', style='display:none;')
+											input(type='text', class='falda_inputtid', name='falda_inputtid')
+							tr
+								td(colspan='4', style='padding:20px 4px;')
+									input(type='button', value='Nýr hópur', title='Bæta við námshóp', style='float:right; margin-left:8px;', class='nyr_hopur')
+									input(type='button', value='Eyða hóp', title='Bæta við námshóp', style='float:right;', class='eyda_hop')
+				.taflacontainer_midja
+					table.yfirlit_fog_tafla
+						thead
+							th(colspan='3')
+								#{title}
+							th.info(name='namskeidin thin') ?
+							tbody
+							-for (var id in items)
+								- var item = items[id]
+								tr
+									td.fag
+										#{item.name}
+									td
+										form(name='laerdomur', method='post')
+											input(type='button', class='laera_einn', value='Læra', name='laerdomur')
+									td
+										input(type='button', class='hoplaerdomur', value='Hóplærdómur')
+
+			include footer

@@ -1,0 +1,83 @@
+html
+	head
+		script(type='text/javascript', src='/javascripts/phono.js')
+		script(type='text/javascript', src='/javascripts/yfirlit.js')
+		script(type='text/javascript', src='/javascripts/jquery.rating.pack.js')
+		script(type='text/javascript', src='/nowjs/now.js')
+	body
+		#container
+			include userbar
+			#nedricontainer
+				.kassar.yfirlit
+					h3 #{namskeid} 
+						| - Yfirlit
+					p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis condimentum sapien non ante laoreet fermentum. Nam ultricies, nisl non mattis mollis, massa dui facilisis lorem, ut congue eros turpis ut elit. Donec non ipsum massa, nec rutrum erat. Curabitur eleifend sapien sit amet nisl gravida egestas. Sed in mollis magna. Morbi et hendrerit ante. Fusce sed risus orci. Vivamus eget nisi id turpis mollis molestie. Nulla congue mattis ornare. Suspendisse pharetra felis nunc, dictum fringilla enim. Vestibulum in neque sodales nulla tincidunt suscipit. Cras ligula risus, accumsan at bibendum ut, tincidunt egestas sapien. Nunc et turpis arcu. Nam fermentum, mauris a pretium porttitor, quam purus viverra libero, commodo euismod risus tellus vitae dolor. Quisque accumsan, justo in malesuada elementum, purus dolor placerat libero, at convallis ligula eros nec mi. Donec sed libero ipsum.
+				.kassar.vinstri.hver_er_stadan
+					p Þú hefur lokið við 1 af 5 prófum þessa námskeiðs
+					input(type='button', value='Halda áfram með próf 3', class='takki_stor graenn')
+				.kassar.haegri
+					h3 Stjörnugjöf kúrsins
+					div.stjornur
+						input(name='star1',	type='radio', class='star', title='Lélegur')
+						input(name='star1',	type='radio', class='star', title='Skítsæmilegur')
+						input(name='star1',	type='radio', class='star', title='Ágætur en má bæta')
+						input(name='star1',	type='radio', class='star', title='Góður')
+						input(name='star1',	type='radio', class='star', title='Frábær!')
+						input(type='button', class='takki litill graenn submitta_einkunn', value='Gefa einkunn')
+				.kassar.haegri
+					h3 Tilkynningar
+					div.tilkynning_container
+						h4.tilkynning_header header
+						p.tilkynning tilky
+				.kassar.vinstri.namsyfirlit
+					h3 Lífeðlisfræðileg sálfræði - Námsyfirlit
+					table
+						tr
+						-var a = 1;
+						-for(var i = 0; i < profa_array.length; i = i+3){
+							-prosenta = profa_array[i+2]+'%';
+							-prosenta2 = profa_array[i+2];
+							td
+								.tala #{a}
+							td
+								h4= profa_array[i]
+							td 
+								input(type='button', value='Leysa', class='takki hvitur leysa_prof')
+							td
+								input(type='button', value='Leysa með öðrum', class='takki hvitur leysa_prof') 
+						tr
+							td(style='border:1px solid red;', COLSPAN='4')
+								p= profa_array[i+1] 
+									|  Spurningar
+						tr
+							td.statusbar_container(COLSPAN='4') 
+								div.fylla_statusbar(style='width:#{prosenta}')
+						tr
+							- if(prosenta2 == 0){
+							td(COLSPAN='4')
+								input(type='button', value='Byrja á prófi', class='takki graenn', style='float:right;')
+							-}
+							- else{
+							td(COLSPAN='4')
+								input(type='button', value='Halda áfram með próf', class='takki graenn', style='float:right;')
+							-}
+							-a++
+						-}
+				.kassar.haegri
+					h3 Spurningar
+					div.spurningacontainer
+						div.spurning_um_kurs 
+							p.sjalf_spurningin spurning!
+							h5.spurning_info 
+								span.spyrjandi soe3@hi.is 
+								span.timi_spurningar 12.10 2012, 22:38
+					div.spurningar_input_container
+						form.spyrja_spurningu_form
+							input(type='text', value='spurdu', class='spurning_input')
+							input(type='submit', value='Spyrja!', class='spurning_input_takki takki blar')
+				.kassar.haegri
+					h3 Um kennarann
+					img(src='http://famouscelebrityphoto.com/wp-content/uploads/2012/02/arnold-schwarzenegger-body.jpg', height='90', width='130')
+					h5 Sindri Stefánsson "The Sindrinator"
+					p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis condimentum sapien non ante laoreet fermentum. Nam ultricies, nisl non mattis mollis, massa dui facilisis lorem, ut congue eros turpis ut elit. Donec non ipsum massa, nec rutrum erat. Curabitur eleifend sapien sit amet nisl gravida egestas. Sed in mollis magna. Morbi et hendrerit ante. Fusce sed risus orci. Vivamus eget nisi id turpis mollis molestie. 
+				.strik

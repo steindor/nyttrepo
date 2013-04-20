@@ -1,0 +1,101 @@
+html
+	head
+		script(type='text/javascript', src='/javascripts/jquery.tools.min.js')
+		script(type='text/javascript', src='/javascripts/phono.js')
+		script(type='text/javascript', src='/javascripts/jquery.cookie.js')
+		script(type='text/javascript', src='/javascripts/prof.js')
+		script(type='text/javascript', src='/nowjs/now.js')
+		link(href='http://fonts.googleapis.com/css?family=Knewave', rel='stylesheet', type='text/css')
+	body
+		#container
+			include userbar
+			#nedricontainer
+				.spurninga_yfirlit
+					.ajax_loader_gif
+						img(src='/images/ajax-loader.gif')
+					.spurningamida_container
+					-for(var key in rows){
+					-val = rows[key]
+					-qid_midar = val.qid
+					-class = 'qid_'+qid_midar;
+						div.spurningayfirlit_midi(class='#{class}')
+							#{qid_midar} 
+					-}
+				.prof_kassi#prof_container
+					.container_spurningakassi
+						table.prof
+							tbody
+								tr
+									td(valign='top', colspan='2') 
+										.post 
+											h3.profatexti Vorpróf 2001 
+												.numer_spurningar 
+													span.namskeid #{namskeid}
+													|  - #
+													span.qid #{qid}
+											p.spurning #{spurning}
+								tr
+									td(colspan='2', ALIGN='center')
+										input(type='button', value='Hvað í fjandanum er í gangi?', class='takki_stor orange utskyring', style='width:35%;margin:13px;')
+										input(type='button', value='Velja svar', class='takki_stor graenn velja_svar', style='width:35%;')
+										input(type='button', value='Mötuneyti', class='takki_stor blar myndband modalInput', rel='#myndband', style='width:20%;margin:13px;')
+								tr
+									td(colspan='2')
+										div.utskyringin 
+											h3 Í hnotskurn
+											p #{utskyring_spurningu}
+								tr
+									td(width='13')
+										.tala A
+									td.svar.svarmoguleiki.svar_a #{svarmoguleiki_a}
+								tr
+									td
+									td.utskyring_svarmoguleiki.utskyring_a #{utskyring_a}
+								tr
+									td(width='13')
+										.tala B
+									td.svar.svarmoguleiki.svar_b #{svarmoguleiki_b}
+								tr
+									td
+									td.utskyring_svarmoguleiki.utskyring_b #{utskyring_b}
+								tr
+									td(width='13')
+										.tala C
+									td.svar.svarmoguleiki.svar_c #{svarmoguleiki_c} 
+								tr
+									td
+									td.utskyring_svarmoguleiki.utskyring_c #{utskyring_c}
+								tr
+									td(width='13')
+										.tala D
+									td.svar.svarmoguleiki.svar_d #{svarmoguleiki_d}
+								tr
+									td
+									td.utskyring_svarmoguleiki.utskyring_d #{utskyring_d}
+								tr
+									td(width='13')
+										.tala(style='display:none;') E
+									td.svar.svarmoguleiki.svar_e(style='display:none;') 
+				#hlidarsla_container.sticky
+					table.hlidarsla
+						tbody
+							tr
+								td 
+									input(type='button', value='Tilkynna villu', class='takki raudur tilkynna_villu', style='width:95%; font-size:1em;')
+							tr
+								td.socialgluggi.stigagluggi(VALIGN='top') 
+									p.skilabod a
+							tr
+								td.hverjir_eru_i_sess
+									p #{notendanafn}
+							tr
+								td.spjallgluggi.stigagluggi Spjallgluggi
+							tr
+								td
+									.form_container	
+										form(name='spjall_form_profgluggi', class='spjall_form_prufgluggi', type='submit')
+											input(type='text', value='spjallens', class='spjall_input')
+											input(type='submit', value='Senda', class='spjall_takki_senda svartur')
+				#myndband.modal
+					video(controls='controls')
+						source.myndband_source(src='/videos/sal_lifsal_v01_s1.mp4', type='video/mp4')

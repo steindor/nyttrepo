@@ -1,0 +1,38 @@
+html
+	head
+		script(type='text/javascript', src='/javascripts/phono.js')
+		script(type='text/javascript', src='/javascripts/thitt_yfirlit.js')
+		script(type='text/javascript', src='/nowjs/now.js')
+	body
+		#container
+			include userbar
+			#nedricontainer
+				.kassar.yfirlit
+					h3 Námskeiðin þín
+					.namskeid_icon
+						img(src='http://www.science.kuniv.edu.kw/en/SciImages/Chem/chem_01.jpg', width='200')
+						h4 Efnafræði
+					.namskeid_icon
+						img(src='http://www.tsalliance.org/images/uploaded/NeuroImage2.jpg', width='200')
+						h4 Lífeðlisfræðileg sálfræði
+				.kassar.vinstri.hver_er_stadan
+					h3 Profile gluggi
+					.container
+						.user_mynd
+							img(src='http://www.city-data.com/forum/attachments/relationships/78878d1303581217-what-do-you-look-like-again-sid.jpg', height='200', title='Vantar mynd!')
+						.info_um_user
+							-for(var key in info_um_user){
+							-val = info_um_user[key]
+							p.info_header #{key} 
+							p #{val}
+							-}
+				.kassar.haegri
+					h3 Activity gluggi
+					div.container_messages
+					-for(var key in atburdir_arr){
+						-var val = atburdir_arr[key]
+						.skilabod_thitt_yfirlit 
+							p.atburdur #{val.atburdur}
+							p.timi_thitt_yfirlit #{val.timi}
+					-}
+					p.message(style="background-color:none;border:0;")

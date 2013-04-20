@@ -1,0 +1,45 @@
+html
+	head
+		script(type='text/javascript', src='/javascripts/namsgluggi.js')
+		script(type='text/javascript', src='/javascripts/phono.js')
+		script(type='text/javascript', src='/nowjs/now.js')
+	body
+		#container
+			#display
+				include userbar
+			#nedricontainer	
+				table.tafla_med_namsefni(style='width:100%; border:1px solid red;')
+					tbody
+						tr
+							td(rowspan='3')
+								.spurninga_container
+									p.spurning #{spurning}
+									p.valmoguleiki.valmoguleiki_a #{svar_a}
+									p.valmoguleiki.valmoguleiki_b #{svar_b}
+									p.valmoguleiki.valmoguleiki_c #{svar_c}
+									p.valmoguleiki.valmoguleiki_d #{svar_d}
+									p.valmoguleiki.valmoguleiki_e #{svar_e}
+							td(rowspan='3')
+								.utskyring_container
+									p.utskyring #{utskyring}
+									p 
+										b asd her er eg
+							td(style='height:100px;border:1px solid blue; text-align:center;')
+								p
+									a Hjálpargögn
+								p
+									a Námsefni
+								p
+									a.hringing Hleð..
+						tr
+							td(style='height:50px;')
+								div.hverjir_eru_inni
+						tr
+							td(rowspan='1', style='width:200px;')
+								div.skilabodagluggi
+									p.skilabod Hleður...
+								div.skilabodainput_container		
+									input(type='text', class='skilabod_texti', style='width:140px; height:20px; margin-top:2px;')
+									input(type='button', value='senda', class='skilabod_takki_senda', style='margin-left:3px;')
+										
+		include footer
